@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+</head>
+<body>
+<div id="output">
+	
+</div>
+</body>
+<script type="text/javascript">
+	var person = {
+		name: "John",
+		age: 35,
+		saySomething: function(message, output){
+			output(message);
+		}
+
+
+	}
+
+	console.log(person.name);
+	console.log(person.age);
+	person.saySomething("Hello from Div Parameter", function(msg){
+		var divOutput = document.getElementById("output");
+		divOutput.innerHTML = msg;
+	});
+
+	person.saySomething("Hello from Alert Parameter", function(msg) {
+		window.alert(msg);
+	});
+
+	person.saySomething("Hello from console log.", function(msg){
+		console.log(msg);
+	});
+</script>
+</html>
