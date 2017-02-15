@@ -1,0 +1,1 @@
+var appCustomer = angular.module("appCustomer", []);

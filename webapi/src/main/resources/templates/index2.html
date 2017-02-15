@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"></meta>
+<title>Insert title here</title>
+
+<script type="text/javascript">
+//<![CDATA[
+function loadData() {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if(xhttp.readyState == 4 && xhttp.status == 200) {
+			document.getElementById("demo").innerHTML = xhttp.responseText;
+		}
+	};
+	xhttp.open("GET", "http://localhost:8080/customers", true);
+	xhttp.send();
+}
+//]]>
+</script>
+</head>
+<body id="demo">
+
+</body>
+<script>
+loadData();
+</script>
+</html>
