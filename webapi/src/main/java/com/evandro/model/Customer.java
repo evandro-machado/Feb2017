@@ -9,7 +9,7 @@ public class Customer {
 	@Id
 	@GeneratedValue
 	private Integer id;
-	private String nome;
+	private String name;
 	
 	public Integer getId() {
 		return id;
@@ -17,10 +17,10 @@ public class Customer {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 }
