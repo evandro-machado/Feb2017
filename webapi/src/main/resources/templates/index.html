@@ -4,19 +4,15 @@
 <meta charset="UTF-8"></meta>
 <title>Insert title here</title>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
 <script src="./js/app.js"></script>
+<script src="./js/controller/customer-controller.js"></script>
+<script src="./js/controller/city-controller.js"></script>
+<script src="./js/controller/state-controller.js"></script>
+
 </head>
-<body ng-controller="indexController">
+<body>
 
-		Hi {{customer.name}} <br />
-
-	<input type="text" ng-model="customer.name" />
-	<input type="button" value="save" name="" ng-click="saveCustomer()"/>
-	<input type="button" value="Cancel" name="" ng-click="cancelCustomerEdit()"/>
-	<div ng-repeat="customer in customers">
-		{{customer.id + "|" + customer.name}} 
-		<input type="button" name="" value="Delete" ng-click="deleteCustomer(customer, $index)"/>
-		<input type="button" value="Edit" ng-click="editCustomer(customer)" />
-	</div>
+<a href="/#/customers">Customers</a>
 </body>
 </html>

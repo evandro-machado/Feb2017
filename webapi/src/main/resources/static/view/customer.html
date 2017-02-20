@@ -1,0 +1,11 @@
+<div ng-controller="customerController">
+Hi {{customer.name}} <br />
+<input type="text" ng-model="customer.name" />
+<input type="button" value="save" name="" ng-click="saveCustomer()"/>
+<input type="button" value="Cancel" name="" ng-click="cancelCustomerEdit()"/>
+<div ng-repeat="customer in customers">
+	{{customer.id + "|" + customer.name}}
+	<input type="button" name="" value="Delete" ng-click="deleteCustomer(customer, $index)"/>
+	<input type="button" value="Edit" ng-click="editCustomer(customer)" />
+</div>
+</div>
