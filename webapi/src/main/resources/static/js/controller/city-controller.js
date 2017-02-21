@@ -1,0 +1,3 @@
+appCustomer.controller("cityController", function (){
+
+});
