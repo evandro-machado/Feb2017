@@ -7,5 +7,6 @@ Hi {{customer.name}} <br />
 	{{customer.id + "|" + customer.name}}
 	<input type="button" name="" value="Delete" ng-click="deleteCustomer(customer, $index)"/>
 	<input type="button" value="Edit" ng-click="editCustomer(customer)" />
+	<a href="customers/{{customer.id}}">Detail</a>
 </div>
 </div>

@@ -6,6 +6,10 @@ appCustomer.config(function($routeProvider, $locationProvider){
 		templateUrl: 'view/customer.html',
 		controller: 'customerController'
 	})
+	.when("/customers/:customerId", {
+		templateUrl: 'view/customer-detail.html',
+		controller: 'customerDetailController'
+	})
 	.when("/cities", {
 		templateUrl: 'view/city.html',
 		controller: 'cityController'

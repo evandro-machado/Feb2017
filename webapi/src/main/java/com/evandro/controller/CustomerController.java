@@ -35,6 +35,12 @@ public class CustomerController {
 		return new ResponseEntity<>(customersFound, HttpStatus.OK);
 	}
 	
+	@RequestMapping(method=RequestMethod.GET, value="/customers/{id}", produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Customer> findCustomerById(@PathVariable Integer id){
+		Customer customer = customerService.findById(id);
+		return new ResponseEntity<>(customer, HttpStatus.OK);
+	}
+	
 	@RequestMapping(method=RequestMethod.DELETE, value="/customers/{id}")
 	public ResponseEntity<Customer> deleteCustomer(@PathVariable Integer id){
 		Customer customerFound = customerService.findById(id);
