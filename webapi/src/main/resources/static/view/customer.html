@@ -1,8 +1,57 @@
+<style type="text/css">
+	fieldset{
+		display: inline;
+	}
+</style>
+
 <div ng-controller="customerController">
 Hi {{customer.name}} <br />
-<input type="text" ng-model="customer.name" />
-<input type="button" value="save" name="" ng-click="saveCustomer()"/>
-<input type="button" value="Cancel" name="" ng-click="cancelCustomerEdit()"/>
+<form novalidate name="customerForm">
+	<div>
+		<label>Name: </label>
+		<input type="text" ng-minlength="2" ng-maxlength="10" name="nameTxt" ng-model="customer.name" required/>
+		<span ng-show="customerForm.nameTxt.$error.required && customerForm.nameTxt.$dirty">Name field is required.</span>
+	</div>
+
+	<div>
+		<label>Email: </label>
+		<input type="email" name="emailTxt" ng-model="customer.email" required/>
+		<span ng-show="customerForm.emailTxt.$error.required && customerForm.emailTxt.$dirty">Email field is required.</span>
+		<span ng-show="customerForm.emailTxt.$error.email">Email field is invalid.</span>
+	</div>
+
+
+	<input type="button" value="save" name="" ng-click="saveCustomer()" ng-disabled="customerForm.$invalid"/>
+	<input type="button" value="Cancel" name="" ng-click="cancelCustomerEdit()" ng-disabled="customerForm.$invalid"/>
+<div>
+	<fieldset>
+		<legend>Form</legend>
+		Valid: {{customerForm.$valid}}
+	</fieldset>
+
+	<fieldset>
+		<legend>Name</legend>
+		Valid: {{customerForm.nameTxt.$valid}} <br />
+		Invalid: {{customerForm.nameTxt.$invalid}} <br />
+		Pristine: {{customerForm.nameTxt.$pristine}} <br />
+		Dirty: {{customerForm.nameTxt.$dirty}} <br />
+		Touched: {{customerForm.nameTxt.$touched}} <br />
+		Error Required: {{customerForm.nameTxt.$error.required}} <br />
+		Error Min Length: {{customerForm.nameTxt.$error.minlength}} <br />
+		Error Max Length: {{customerForm.nameTxt.$error.maxlength}} <br />
+	</fieldset>
+
+
+	<fieldset>
+		<legend>Email</legend>
+		Valid: {{customerForm.emailTxt.$valid}} <br />
+		Invalid: {{customerForm.emailTxt.$invalid}} <br />
+		Pristine: {{customerForm.emailTxt.$pristine}} <br />
+		Dirty: {{customerForm.emailTxt.$dirty}} <br />
+		Touched: {{customerForm.emailTxt.$touched}} <br />
+	</fieldset>
+</div>
+</form>
 <div ng-repeat="customer in customers">
 	{{customer.id + "|" + customer.name}}
 	<input type="button" name="" value="Delete" ng-click="deleteCustomer(customer, $index)"/>
