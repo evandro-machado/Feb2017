@@ -3,6 +3,7 @@ package com.evandro.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Customer {
@@ -10,6 +11,9 @@ public class Customer {
 	@GeneratedValue
 	private Integer id;
 	private String name;
+	private String email;
+	@ManyToOne
+	private State state;
 	
 	public Integer getId() {
 		return id;
@@ -22,5 +26,17 @@ public class Customer {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public State getState() {
+		return state;
+	}
+	public void setState(State state) {
+		this.state = state;
 	}
 }
