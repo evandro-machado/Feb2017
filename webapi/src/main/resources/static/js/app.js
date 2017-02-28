@@ -18,6 +18,10 @@ appCustomer.config(function($routeProvider, $locationProvider){
 		templateUrl: 'view/state.html',
 		controller: 'stateController'
 	})
+	.when("/login", {
+		templateUrl: 'view/login.html',
+		controller: 'loginController'
+	})
 	.otherwise({redirectTo: '/'
 	});
 	
