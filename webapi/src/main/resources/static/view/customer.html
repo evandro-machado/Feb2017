@@ -12,7 +12,12 @@ Hi {{customer.name}} <br />
 		<input type="text" ng-minlength="2" ng-maxlength="10" name="nameTxt" ng-model="customer.name" required/>
 		<span ng-show="customerForm.nameTxt.$error.required && customerForm.nameTxt.$dirty">Name field is required.</span>
 	</div>
-
+	<div ng-controller="stateController">
+		<label>State: </label>
+		<select ng-model="customer.state.id">
+			<option ng-repeat="state in states" value="{{state.id}}">{{state.uf}}</option>
+		</select>
+	</div>
 	<div>
 		<label>Email: </label>
 		<input type="email" name="emailTxt" ng-model="customer.email" required/>
@@ -26,8 +31,8 @@ Hi {{customer.name}} <br />
 <div>
 	<fieldset>
 		<legend>Form</legend>
-		Valid: {{customerForm.$valid}}
-		Valid: {{customerForm.$pristine}}
+		Valid: {{customerForm.$valid}} <br />
+		Pristine: {{customerForm.$pristine}}
 	</fieldset>
 
 	<fieldset>
@@ -54,7 +59,7 @@ Hi {{customer.name}} <br />
 </div>
 </form>
 <div ng-repeat="customer in customers">
-	{{customer.id + "|" + customer.name}}
+	{{customer.id + "|" + customer.name + "|" + customer.state.uf}}
 	<input type="button" name="" value="Delete" ng-click="deleteCustomer(customer, $index)"/>
 	<input type="button" value="Edit" ng-click="editCustomer(customer)" />
 	<a href="customers/{{customer.id}}">Detail</a>
