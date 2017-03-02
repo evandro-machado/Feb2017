@@ -13,18 +13,15 @@ import com.evandro.model.Operator;
 import com.evandro.service.OperatorService;
 
 @RestController
-public class LoginController {
-	
+public class OperatorController {
+
 	@Autowired
-	private OperatorService userService;
+	private OperatorService operatorService;
 	
-	@RequestMapping(value="/authenticate", consumes=MediaType.APPLICATION_JSON_VALUE, method=RequestMethod.POST)
-	public ResponseEntity<Operator> autenthicate(@RequestBody Operator operator){
-		System.out.println("Called method authenticate " + operator.getName() + " " + operator.getPassword());
-		
-		//Query database
-		Operator authenticatedOperator = userService.findByName(operator.getName());
-		
-		return new ResponseEntity<Operator>(authenticatedOperator, HttpStatus.OK);
+	@RequestMapping(method=RequestMethod.POST, value="/operators", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Operator> registerOperator(@RequestBody Operator operator){
+		Operator registeredOperator = operatorService.registerOperator(operator);
+		return new ResponseEntity<>(registeredOperator, HttpStatus.CREATED);
 	}
+	
 }

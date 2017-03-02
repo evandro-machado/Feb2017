@@ -1,8 +1,14 @@
 package com.evandro.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-public class User {
+@Entity
+public class Operator {
+	@Id
+	@GeneratedValue
+	private Integer id;
 	private String name;
 	private String password;
 	
@@ -17,5 +23,11 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
 	}
 }
