@@ -7,7 +7,7 @@ appCustomer.controller("customerController", function($scope, $http) {
 	$scope.loadCustomers = function() {
 		$http({
 			method:'GET',
-			url:'http://localhost:8080/customers'
+			url:'http://localhost:8080/admin/customers'
 		})
 		.then(
 			function (response){
@@ -31,7 +31,7 @@ appCustomer.controller("customerController", function($scope, $http) {
 		if($scope.customerForm.$valid){
 			$http({
 				method:'POST',
-				url:'http://localhost:8080/customers',
+				url:'http://localhost:8080/admin/customers',
 				data: $scope.customer,
 				headers: {
 					'Content-Type': 'application/json'
@@ -59,7 +59,7 @@ appCustomer.controller("customerController", function($scope, $http) {
 	$scope.deleteCustomer = function(customer, position) {
 		$http({
 			method:'DELETE',
-			url:'http://localhost:8080/customers/' + customer.id,
+			url:'http://localhost:8080/admin/customers' + customer.id,
 			headers: {
 				'Content-Type': 'application/json'
 			}

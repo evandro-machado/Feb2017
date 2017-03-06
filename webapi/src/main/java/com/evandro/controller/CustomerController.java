@@ -16,6 +16,7 @@ import com.evandro.model.Customer;
 import com.evandro.service.CustomerService;
 
 @RestController
+@RequestMapping("/admin")
 public class CustomerController {
 
 	@Autowired
