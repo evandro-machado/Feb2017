@@ -27,3 +27,7 @@ appCustomer.config(function($routeProvider, $locationProvider){
 	
 	$locationProvider.html5Mode(true);
 });
+
+appCustomer.config(function($httpProvider){
+	$httpProvider.interceptors.push("tokenInterceptor");
+});
