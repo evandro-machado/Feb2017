@@ -5,6 +5,9 @@ appCustomer.controller("customerController", function($scope, $http) {
 	$scope.customer = {};
 
 	$scope.loadCustomers = function() {
+
+		$http.defaults.headers.common.Authorization = "Bearer " + localStorage.getItem("userToken");
+
 		$http({
 			method:'GET',
 			url:'http://localhost:8080/admin/customers'

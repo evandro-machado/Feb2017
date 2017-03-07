@@ -8,6 +8,7 @@ appCustomer.controller("loginController", function($scope, $http){
 			.then(function(response){
 				console.log("Success: " + response);
 				$scope.token = response.data.token;
+				localStorage.setItem("userToken", response.data.token)
 			},
 			function(response){
 				console.log("Error: " + response);
