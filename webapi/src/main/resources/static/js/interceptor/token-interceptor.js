@@ -1,4 +1,4 @@
-appCustomer.factory("tokenInterceptor", function($q){
+appCustomer.factory("tokenInterceptor", function($q, $location){
 
 	return {
 		'request' : function(config){
@@ -6,11 +6,11 @@ appCustomer.factory("tokenInterceptor", function($q){
 
 			return config;
 		},
-		'response' :function(response){
-			if(response.status == 500){
+		'responseError' :function(rejection){
+			if(rejection.status == 500){
 				location.path("/login");
 			}
-			return response;
+			return $q.reject(rejection);
 		}
 	}
 });
